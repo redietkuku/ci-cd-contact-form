@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="auth-container">
-      <h2>Contact Us</h2>
+      <h2>Contact</h2>
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
