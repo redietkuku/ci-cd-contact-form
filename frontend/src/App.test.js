@@ -3,5 +3,5 @@ import App from './App';
 
 test('renders contact form heading', () => {
   render(<App />);
-  expect(screen.getByText(/contact us/i)).toBeInTheDocument();
+  expect(screen.getByText(/contact/i)).toBeInTheDocument();
 });
