@@ -2,12 +2,14 @@ version: "3.8"
 
 services:
   backend:
+  #back-end service running Express API
     container_name: backend
     build: ./backend
     ports:
       - "3001:3001"
 
   frontend:
+  #front-end service running React
     container_name: frontend
     build: ./frontend
     ports:
