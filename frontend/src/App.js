@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
   const [form, setForm] = useState({
@@ -41,44 +42,51 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: 500, margin: '40px auto', fontFamily: 'Arial' }}>
+    <div className="auth-container">
       <h2>Contact Us</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          placeholder="Name"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <br /><br />
+        <div className="form-group">
+          <input
+            name="name"
+            placeholder="Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <br /><br />
+        <div className="form-group">
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <textarea
-          name="message"
-          placeholder="Message"
-          value={form.message}
-          onChange={handleChange}
-          required
-        />
-        <br /><br />
+        <div className="form-group">
+          <textarea
+            name="message"
+            placeholder="Your Message..."
+            value={form.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
         <button disabled={loading}>
-          {loading ? 'Sending...' : 'Submit'}
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
 
-      {status && <p>{status}</p>}
+      {status && (
+        <div className={`status-message ${status.includes('successfully') ? 'success' : 'error'}`}>
+          {status}
+        </div>
+      )}
     </div>
   );
 }
